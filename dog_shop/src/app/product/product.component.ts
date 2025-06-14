@@ -17,6 +17,7 @@ export class ProductComponent {
     console.log('ProductComponent initialized. <<<TESTE>>>');
     this.productService.getProducts().subscribe((data) => {
       this.products = data;
+      console.log(data)
     });
   }
 }
