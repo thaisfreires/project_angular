@@ -1,0 +1,12 @@
+<div class="card h-100 shadow-sm border-0">
+    <img [src]="product.imageUrl" alt="{{ product.name }}" class="card-img">
+    <div class="card-content">
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.description }}</p>
+      <strong>R$ {{ product.price }}</strong>
+      <button class="btn btn-outline.primary w-100" (click)="showDetails()" >
+        Show
+      </button>
+    </div>
+  </div>
+  
