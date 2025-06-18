@@ -15,7 +15,6 @@ export class ProductComponent {
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
-    console.log('ProductComponent initialized. <<<TESTE>>>');
     this.productService.getProducts().subscribe({
       next: data => {
         console.log('Received:', data);
