@@ -7,20 +7,6 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-home',
   imports: [ProductCardComponent, CommonModule],
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
