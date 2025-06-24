@@ -1,0 +1,10 @@
+<div class="container-fluid">
+    <div class="title">
+        <h1>Our Products</h1>
+    </div>
+  <div class="gallery">
+    <div *ngFor="let product of products">
+      <app-product-card [product]="product" />
+    </div>
+  </div>
+</div>

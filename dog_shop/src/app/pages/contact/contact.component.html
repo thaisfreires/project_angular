@@ -1,1 +1,82 @@
-<p>contact works!</p>
+<div class="container my-0">
+  <form [formGroup]="form" class="bg-light p-4 rounded shadow-sm">
+    <h4 class="mb-4">Contact Us</h4>
+
+    <!--Name-->
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        formControlName="name"
+        type="text"
+        class="form-control"
+        id="name"
+      />
+    </div>
+
+    <!--Email address-->
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        formControlName="email"
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="name@example.com"
+      />
+    </div>
+
+    <!--Subject-->
+
+    <div class="mb-3">
+      <label for="subject" class="form-label">Subject</label>
+      <select
+        formControlName="subject"
+        class="form-select"
+        id="subject"
+        aria-label="Select a subject"
+      >
+        @for (item of subject; track $index){
+        <option>{{ item }}</option>
+        }
+      </select>
+    </div>
+
+    <!--Message-->
+
+    <div class="mb-3 mt-3">
+      <label for="message" class="form-label">Message</label>
+      <input
+        formControlName="message"
+        class="form-control"
+        id="message"
+        rows="5"
+        placeholder="Type your message here.."
+      />
+    </div>
+    <div class="mb-3 text-start">
+      <app-button
+        label="Reset"
+        type="reset"
+        (onClick)="resetForm()"
+      ></app-button>
+      <!-- Submit button -->
+      <app-button label="Submit" type="submit"></app-button>
+    </div>
+  </form>
+</div>
+<!-- Check if form is valid
+<div>
+  <p>
+    Name: {{ form.value.name }} 
+    Subject: {{ form.value.subject }} 
+    Email:{{ form.value.email }} 
+    Message: {{ form.value.message }}
+  </p>
+</div> -->
+<app-image-text-content
+  imageUrl="assets/porto.jpg"
+  title="We are located in Porto, Portugal"
+  description="Visit us in our beautiful Porto, Portugal at 🗺 Rua dos Clérigos, 123"
+/>

@@ -1,1 +1,36 @@
-<p>header works!</p>
+<nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+        <img [src]="image" alt="Cafe Dog Shop" class="logo me-2" width="60" height="60">
+        <span routerLink="/home" class="title">{{title}}</span>
+      </a>
+  
+      <!-- Hamburger (Mobile) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Nav links -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav gap-4">
+          <li class="nav-item"><a class="nav-link text-white" routerLink="/home">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" routerLink="/products">Products</a></li>
+          <li class="nav-item"><a class="nav-link text-white" routerLink="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link text-white" routerLink="/contact">Contact</a></li>
+        </ul>
+      </div>
+  
+      <!-- Icons and Login -->
+      <div class="d-flex align-items-center gap-3">
+        <a href="#" class="text-white text-decoration-none">Login</a>
+  
+        <!-- Cart Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon text-white" viewBox="0 0 24 24" width="24" height="24">
+          <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zM7.16 14.26l.03-.12L7.9 12h8.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49a1 1 0 00-.88-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44A2.007 2.007 0 007 16h12v-2H7.42c-.12 0-.24 0-.26-.26z"/>
+        </svg>
+      </div>
+    </div>
+  </nav>
+  

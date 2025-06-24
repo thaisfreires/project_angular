@@ -1,0 +1,41 @@
+.custom-navbar {
+    background-color: #5e3b1c; /* Warm brown */
+    padding: 10px 20px;
+  }
+  
+  .navbar-brand .logo {
+    border-radius: 50%;
+  }
+  
+  .navbar-nav .nav-link {
+    font-weight: 500;
+    transition: transform 0.2s, color 0.2s;
+    color: white;
+  
+    &:hover {
+      cursor: pointer;
+      color: #e19848 !important; 
+      text-decoration: none; 
+      transform: scale(1.10); 
+    }
+  }
+  
+
+  .icon {
+    fill: #e19848;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .icon:hover {
+    transform: scale(1.1);
+  }
+
+  .title {
+    color: #e19848;
+    font-family: 'Potta One', sans-serif;
+    font-weight: 200;
+      
+  }
+
+  

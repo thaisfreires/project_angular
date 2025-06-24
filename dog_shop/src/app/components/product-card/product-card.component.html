@@ -1,13 +1,12 @@
 <div class="product-card">
     <div class="card-image">
-    <img [src]="product.imageUrl" alt="{{ product.name }}">
+    <img [src]="'http://localhost:8080/images/' + product.imageUrl" alt="{{ product.name }}">
     <div class="card-content">
-      <h3>{{ product.name }}</h3>
+      <h4>{{ product.name }}</h4>
       <p>{{ product.description }}</p>
       <strong class="price">EUR {{ product.price }}</strong><br>
-      <button class="button" (click)="showDetails()" >
-        Show
-      </button>
+      <button [routerLink]="['/product/', product.id]">View Details</button>
     </div>
   </div>
 </div>
+

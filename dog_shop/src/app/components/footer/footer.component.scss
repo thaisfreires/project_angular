@@ -1,0 +1,39 @@
+.footer {
+    background-color: #5e3b1c;
+    position: relative; 
+    bottom: 0;
+    color: #fce5c3;           
+    padding: 1.5rem;
+    text-align: center;
+  
+    .footer-content {
+      display: flex;
+      flex:1;
+      flex-direction: column;
+      gap: 0.5rem;
+  
+      @media (min-width: 600px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+  
+      a {
+        color: #fce5c3;
+        text-decoration: none;
+        font-weight: 500;
+  
+        &:hover {
+          text-decoration: underline;
+          color: #e19848; // orange from logo
+        }
+      }
+    }
+  }
+  

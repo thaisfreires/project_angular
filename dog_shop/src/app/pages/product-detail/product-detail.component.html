@@ -1,1 +1,71 @@
-<p>product-detail works!</p>
+@if (selectedProduct) {
+    <div>
+        <h3>{{ selectedProduct.name }}</h3>
+        <img [src]="selectedProduct.imageUrl" alt="{{ selectedProduct.name }}"class="img-fluid rounded shadow mb-3">
+        <p>Price: {{ selectedProduct.price }} EUR</p>
+        <app-button label="Add to Cart" type="button" (onClick)="addToCart()" />
+        <button class="btn btn-secondary mt-2" [routerLink]="['/products']">Back</button>
+
+        <div class="container">
+            <div class="container my-0">
+              <div class="row align-items-center">
+                <!-- Image -->
+                <div class="col-md-6 mb-4 mb-md-0">
+                  <img src="https://via.placeholder.com/500x300?text=Review+1" alt="Product Review 1" class="img-fluid rounded shadow" />
+                </div>
+          
+                <!-- Text -->
+                <div class="col-md-6">
+                  <h2 class="mb-3">"Absolutely Love It!"</h2>
+                  <p class="lead">
+                    ⭐⭐⭐⭐⭐ by Jane Doe  
+                    <br />
+                    This product exceeded my expectations. The quality is outstanding and the attention to detail is impressive. Highly recommend it for anyone looking for reliability.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>   
+          <div class="container">
+            <div class="container my-0">
+              <div class="row align-items-center">
+                <!-- Image -->
+                <div class="col-md-6 mb-4 mb-md-0">
+                  <img src="https://via.placeholder.com/500x300?text=Review+2" alt="Product Review 2" class="img-fluid rounded shadow" />
+                </div>
+          
+                <!-- Text -->
+                <div class="col-md-6">
+                  <h2 class="mb-3">"Good, But Not Perfect"</h2>
+                  <p class="lead">
+                    ⭐⭐⭐⭐☆ by Alex Rivera  
+                    <br />
+                    Overall, it’s a solid choice. Performance is great, though I did run into a few minor issues during setup. Customer service was helpful though!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="container my-0">
+              <div class="row align-items-center">
+                <!-- Image -->
+                <div class="col-md-6 mb-4 mb-md-0">
+                  <img src="https://via.placeholder.com/500x300?text=Review+3" alt="Product Review 3" class="img-fluid rounded shadow" />
+                </div>
+          
+                <!-- Text -->
+                <div class="col-md-6">
+                  <h2 class="mb-3">"It Gets the Job Done"</h2>
+                  <p class="lead">
+                    ⭐⭐⭐☆☆ by Sam Lee  
+                    <br />
+                    It’s a decent product for the price. Not outstanding, but reliable enough for daily use. Would consider buying again if improved a bit.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+                  
+    </div>
+}
