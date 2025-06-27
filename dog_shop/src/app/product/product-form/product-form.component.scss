@@ -1,14 +1,10 @@
-.container{
+.container {
     color: #5e3b1c;
     background-color: #f2f7da;
     border-radius: 16px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    padding: 8px;
-    width: 100%;
-    align-items: center;
-}   
-.alert{
-    color: primary;
-    
-}
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  

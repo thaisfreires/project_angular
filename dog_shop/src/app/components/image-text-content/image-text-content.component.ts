@@ -12,6 +12,4 @@ export class ImageTextContentComponent {
   @Input() imageUrl: string = '';
   @Input() title: string = '';
   @Input() description: string = '';
-  @Input() reverse: boolean = false; // image right if true
-
 }

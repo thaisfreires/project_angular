@@ -4,6 +4,7 @@ import { ProductService } from '../../product.service';
 import { Category, Product } from '../../product.model';
 import { ButtonComponent } from '../../components/button/button.component';
 import { CommonModule } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-form',
@@ -12,6 +13,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './product-form.component.html',
 })
 export class ProductFormComponent implements OnInit{
+
   @Input() selectedProduct?: Product;
 
   categories: Category[] = [];
@@ -25,7 +27,7 @@ export class ProductFormComponent implements OnInit{
     image: new FormControl('', Validators.required)
   });  
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit() {
     this.loadCategories();
@@ -104,5 +106,14 @@ export class ProductFormComponent implements OnInit{
       }
       
     }
+  }
+  selectForEdit(product: Product ) {
+    this.selectedProduct = product;
+    console.log('Product selected for editing: ', this.selectedProduct)
+    
+  }
+
+  redirect(){
+    this.router.navigate(['/product-list'])
   }
 }  

@@ -12,10 +12,15 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductListComponent {
   products: Product[] = [];
+  searchTerm: string = '';
+  selectedCategory: string = '';
+  filteredProducts: Product[] = [];
+
 
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
+    this.filteredProducts = this.products;
     this.productService.getProducts().subscribe({
       next: data => {
         console.log('Received:', data);
@@ -24,6 +29,13 @@ export class ProductListComponent {
       error: err => {
         console.error('HTTP Error:', err);
       }
+    });
+  }
+  filterProducts() {
+    this.filteredProducts = this.products.filter(product => {
+      const matchesName = product.name.toLowerCase().includes(this.searchTerm.toLowerCase());
+      const matchesCategory = !this.selectedCategory || product.category.name === this.selectedCategory;
+      return matchesName && matchesCategory;
     });
   }
 }

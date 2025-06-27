@@ -1,7 +1,61 @@
-<app-image-text-content 
-    imageUrl="assets/dog_ai.png"
-    title="Welcome to our Store"
-    description="Discover the latest in dog products, including breed-specific accessories, grooming services, and more. Our AI-powered system helps you find the perfect pet for your needs."
- />
+<div class="home-container">
+
+    <!-- Hero Banner with Image -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Welcome to Café Dog Shop</h1>
+          <p>Adorable and functional products for your best friend 🐾</p>
+          <button [routerLink]="['/product-list']">View Products</button>
+        </div>
+      </div>
+    </section>
   
-<app-product-list />
+    <!-- Categories Section -->
+    <section class="highlights">
+      <h2>Browse by Category</h2>
+      <div class="category-list">
+        <div class="category-item">
+          <img src="assets/dog_small.jpg" alt="Harness" />
+          <p>Harness</p>
+        </div>
+        <div class="category-item">
+          <img src="assets/dog_sunglasses.jpg" alt="Collar" />
+          <p>Collar</p>
+        </div>
+        <div class="category-item">
+          <img src="assets/golden-retriever.jpg" alt="Leash" />
+          <p>Leash</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+      <h2>Weekly Highlights</h2>
+      <div class="gallery">
+        <div *ngFor="let product of featuredProducts">
+          <app-product-card [product]="product" />
+        </div>
+      </div>
+      <button [routerLink]="['/product-list']">View All Products</button>
+    </section>
+  
+    <!-- Image & Text Custom Component -->
+    <app-image-text-content
+      imageUrl="assets/dog_sunglasses.jpg"
+      title="For Your Best Friend"
+      description="Discover fun, cozy, and high-quality products carefully chosen to bring joy to your pet's life. 🐶🐾"
+    ></app-image-text-content>
+  
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <h2>What Our Customers Say</h2>
+      <div class="testimonial">
+        <p>"I bought a cute collar for my Golden Retriever and she loved it! Super comfy and fast delivery!"</p>
+        <span>— Mariana, Lisboa 🐶</span>
+      </div>
+    </section>
+  
+  </div>
+  

@@ -1,36 +1,25 @@
-<div class="container my-0">
-    <form [formGroup]="form" (ngSubmit)="saveProduct()" class="bg-light p-4 rounded shadow-sm">
-      <h4 class="mb-4">Product</h4>
-  
-      <!--Name-->
-  
-      <div class="mb-3">
-        <label for="name" class="form-label">Name:</label>
+<div class="container my-5">
+  <form [formGroup]="form" (ngSubmit)="saveProduct()" class="bg-white p-5 rounded shadow-sm border">
+
+    <!-- Title -->
+    <h3 class="mb-4">Add New Product</h3>
+
+    <div class="row g-3">
+      <!-- Name -->
+      <div class="col-md-6">
+        <label for="name" class="form-label fw-semibold">Name</label>
         <input
           formControlName="name"
           type="text"
           class="form-control"
           id="name"
+          placeholder="e.g., Cozy Dog Bed"
         />
       </div>
-  
-      <!--Description-->
-  
-      <div class="mb-3">
-        <label for="description" class="form-label">Product Description:</label>
-        <input
-          formControlName="description"
-          type="text"
-          class="form-control"
-          id="description"
-          />
-      </div>
-  
-      
-      <!--Price-->
-  
-      <div class="mb-3 mt-3">
-        <label for="price" class="form-label">Price:</label>
+
+      <!-- Price -->
+      <div class="col-md-6">
+        <label for="price" class="form-label fw-semibold">Price</label>
         <input
           formControlName="price"
           class="form-control"
@@ -40,56 +29,59 @@
         />
       </div>
 
-      <!--Image-->
-  
-      <div class="mb-3 mt-3">
-        <label for="imageUrl" class="form-label">Image:</label>
+      <!-- Description -->
+      <div class="col-12">
+        <label for="description" class="form-label fw-semibold">Product Description</label>
+        <textarea
+          formControlName="description"
+          class="form-control"
+          id="description"
+          rows="2"
+          placeholder="Brief description of the product"
+        ></textarea>
+      </div>
+
+      <!-- Image -->
+      <div class="col-md-6">
+        <label for="imageUrl" class="form-label fw-semibold">Image</label>
         <input
           class="form-control"
           name="image"
           type="file"
           id="imageUrl"
-          placeholder="Upload image"
           (change)="onFileChange($event)"
-          
         />
       </div>
 
-
-        <!--Category-->
-  
-    <div class="mb-3">     
-        <label for="category" class="form-label">Category:</label>
+      <!-- Category -->
+      <div class="col-md-6">
+        <label for="category" class="form-label fw-semibold">Category</label>
         <select
-        formControlName="category"
-        class="form-select"
-        id="category"
-      >
-          <option [ngValue]="null" disabled>Select a category</option>
-          @for (category of categories; track category.id){ 
-            <option [ngValue]="category.id">
-            {{ category.name }}
-            </option>
+          formControlName="category"
+          class="form-select"
+          id="category"
+        >
+          <option [ngValue]="" disabled selected>Select a category</option>
+          @for (category of categories; track category.id) {
+            <option [ngValue]="category.id">{{ category.name }}</option>
           }
-        
-      </select> 
-    </div>        
-      <div class="mb-3 text-start">
-        <app-button
-          label="Save"
-          type="submit"
-          (onClick)="saveProduct()"
-  
-        ></app-button>        
-
-        <app-button 
-        label="Delete" 
-        type="button"
-        (onClick)="deleteProduct()"
-        ></app-button>
+        </select>
       </div>
-    </form>
-  </div>
-  
+    </div>
 
-  
+    <!-- Actions -->
+    <div class="mt-4 d-flex gap-3">
+      <app-button
+        label="Save"
+        type="submit"
+        (onClick)="saveProduct()"
+      ></app-button>
+
+      <app-button
+        label="Back"
+        type="button"
+        (onClick)="redirect()"
+      ></app-button>
+    </div>
+  </form>
+</div>

@@ -1,7 +1,12 @@
 <div class="container-fluid">
-    <div class="title">
-        <h1>Our Products</h1>
+  <!-- Title + Filters Row -->
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-center w-100 mb-4 px-2">
+    <div class="title text-center text-md-start mb-3 mb-md-0">
+      <h1> Our Products </h1>
     </div>
+  </div>
+
+  <!-- Product Gallery -->
   <div class="gallery">
     <div *ngFor="let product of products">
       <app-product-card [product]="product" />

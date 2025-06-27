@@ -1,17 +1,115 @@
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2px;
-    padding: 20px;
-    margin: 0px auto;
+.home-container {
+    font-family: 'Segoe UI', sans-serif;
+    color: #4b2e2e;
+    background-color: #fffaf5;
+    padding-bottom: 3rem;
   }
-  img {
-    max-width: 100%;
+  
+  /* Logo and Header */
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background-color: #5c4033;
+    color: #fff;
+  }
+  
+  .logo {
+    width: 60px;
     height: auto;
   }
   
-  .lead {
-    font-size: 1.1rem;
-    line-height: 1.6;
+  .brand-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background-color: #fdebd0;
+    padding: 3rem 2rem;
+  }
+  
+  .hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .hero-text {
+    max-width: 500px;
+  }
+  
+  .hero-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-text button {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .hero-image img {
+    max-width: 300px;
+    border-radius: 16px;
+  }
+  
+  /* Categories */
+  .highlights {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .category-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .category-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  .category-item p {
+    margin-top: 0.5rem;
+    font-weight: bold;
+  }
+  
+  /* Featured Products */
+  .featured-products {
+    padding: 2rem;
+    background-color: #fff3e0;
+    text-align: center;
+  }
+  
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  /* Testimonials */
+  .testimonials {
+    padding: 2rem;
+    background-color: #f9f2ec;
+    text-align: center;
+  }
+  
+  .testimonial {
+    max-width: 600px;
+    margin: 0 auto;
+    font-style: italic;
   }
   

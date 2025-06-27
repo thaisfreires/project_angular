@@ -1,80 +1,75 @@
-<div class="container my-0">
-  <form [formGroup]="form" class="bg-light p-4 rounded shadow-sm">
-    <h4 class="mb-4">Contact Us</h4>
+<div class="container my-5">
+  <form [formGroup]="form" class="bg-white p-5 rounded shadow-sm border">
 
-    <!--Name-->
+    <h3 class="mb-4">Contact Us</h3>
 
-    <div class="mb-3">
-      <label for="name" class="form-label">Name</label>
-      <input
-        formControlName="name"
-        type="text"
-        class="form-control"
-        id="name"
-      />
+    <div class="row g-3">
+      <!-- Name -->
+      <div class="col-md-6">
+        <label for="name" class="form-label fw-semibold">Name</label>
+        <input
+          formControlName="name"
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder="Your full name"
+        />
+      </div>
+
+      <!-- Email -->
+      <div class="col-md-6">
+        <label for="email" class="form-label fw-semibold">Email</label>
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="you@example.com"
+        />
+      </div>
+
+      <!-- Subject -->
+      <div class="col-12">
+        <label for="subject" class="form-label fw-semibold">Subject</label>
+        <select
+          formControlName="subject"
+          class="form-select"
+          id="subject"
+          aria-label="Select a subject"
+        >
+          <option disabled selected>Select a subject</option>
+          @for (item of subject; track $index) {
+            <option>{{ item }}</option>
+          }
+        </select>
+      </div>
+
+      <!-- Message -->
+      <div class="col-12">
+        <label for="message" class="form-label fw-semibold">Message</label>
+        <textarea
+          formControlName="message"
+          class="form-control"
+          id="message"
+          rows="5"
+          placeholder="Type your message here..."
+        ></textarea>
+      </div>
     </div>
 
-    <!--Email address-->
-
-    <div class="mb-3">
-      <label for="email" class="form-label">Email address</label>
-      <input
-        formControlName="email"
-        type="email"
-        class="form-control"
-        id="email"
-        placeholder="name@example.com"
-      />
-    </div>
-
-    <!--Subject-->
-
-    <div class="mb-3">
-      <label for="subject" class="form-label">Subject</label>
-      <select
-        formControlName="subject"
-        class="form-select"
-        id="subject"
-        aria-label="Select a subject"
-      >
-        @for (item of subject; track $index){
-        <option>{{ item }}</option>
-        }
-      </select>
-    </div>
-
-    <!--Message-->
-
-    <div class="mb-3 mt-3">
-      <label for="message" class="form-label">Message</label>
-      <input
-        formControlName="message"
-        class="form-control"
-        id="message"
-        rows="5"
-        placeholder="Type your message here.."
-      />
-    </div>
-    <div class="mb-3 text-start">
+    <!-- Buttons -->
+    <div class="mt-4 d-flex gap-3">
       <app-button
         label="Reset"
         type="reset"
         (onClick)="resetForm()"
       ></app-button>
-      <!-- Submit button -->
       <app-button label="Submit" type="submit"></app-button>
     </div>
   </form>
 </div>
-<!-- Check if form is valid
-<div>
-  <p>
-    Name: {{ form.value.name }} 
-    Subject: {{ form.value.subject }} 
-    Email:{{ form.value.email }} 
-    Message: {{ form.value.message }}
-  </p>
-</div> -->
+
+<!-- Location Banner -->
 <app-image-text-content
   imageUrl="assets/porto.jpg"
   title="We are located in Porto, Portugal"

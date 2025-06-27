@@ -82,8 +82,7 @@ export class EditFormComponent {
         next: () => {
           alert('Product deleted!');
           this.form.reset();
-          this.selectedProduct = undefined;
-          // You can emit an event here if needed to refresh a product list
+          
         },
         error: (err) => {
           console.error('Deletion failed:', err);
