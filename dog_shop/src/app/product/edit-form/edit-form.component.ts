@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Category, Product } from '../../product.model';
 import { ProductService } from '../../product.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-form',
@@ -12,36 +13,43 @@ import { ProductService } from '../../product.service';
   styleUrl: './edit-form.component.scss'
 })
 export class EditFormComponent {
+
   @Input() selectedProduct!: Product;
+  categories: Category[] = [];
+  selectedFile?: File;
 
   form = new FormGroup({
     name: new FormControl('', Validators.required),
     description: new FormControl(''),
     price: new FormControl(0, [Validators.required, Validators.min(0)]),
     category: new FormControl('', Validators.required),
-    image: new FormControl(null),
+    image: new FormControl('', Validators.required)
   });
 
-  categories: Category[] = [];
-  selectedFile?: File;
-
-  constructor(private productService: ProductService) {}
-
+  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {}
   ngOnInit(): void {
     this.loadCategories();
 
-    if (this.selectedProduct) {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if (id) {
+    this.productService.getProductById(id).subscribe(product => {
+      this.selectedProduct = product;
+
       this.form.patchValue({
-        name: this.selectedProduct.name,
-        description: this.selectedProduct.description,
-        price: this.selectedProduct.price,
-        category: this.selectedProduct.category?.id,
+        name: product.name ?? '',
+        description: product.description ?? '',
+        price: product.price ?? 0,
+        category: product.category?.id?.toString() ?? '',
       });
-    }
+    });
+  }
   }
 
   loadCategories() {
-    this.productService.getCategories().subscribe((cats) => (this.categories = cats));
+    this.productService.getCategories().subscribe(categories => {
+      this.categories = categories;
+      console.log('loaded categories: ', categories)
+    });
   }
 
   onFileChange(event: any) {
@@ -51,45 +59,40 @@ export class EditFormComponent {
   }
 
   updateProduct() {
-    if (!this.selectedProduct?.id) {
-      alert('No product selected for editing.');
-      return;
-    }
-
     const formData = new FormData();
     formData.append('name', this.form.get('name')?.value ?? '');
     formData.append('description', this.form.get('description')?.value ?? '');
-    formData.append('price', this.form.get('price')?.value?.toString() ?? '');
-    formData.append('category', this.form.get('category')?.value?.toString() ?? '');
+    formData.append('price', String(this.form.get('price')?.value ?? ''));
+    const categoryId = this.form.get('category')?.value;
+    console.log('categoryId: ',categoryId);
+
+    if (categoryId){
+      formData.append('category', categoryId.toString());
+      console.log('CategoryId worked')
+    }else{
+      console.log('Category Id error')
+    }
 
     if (this.selectedFile) {
-      formData.append('image', this.selectedFile);
+      formData.append('image', this.selectedFile.name);
+      console.log('image filename sent: ', this.selectedFile.name);
     }
 
-    this.productService.update(this.selectedProduct.id, formData).subscribe(() => {
-      alert('Product updated successfully!');
-      this.form.reset();
-    });
-  }
-  deleteProduct() {
-    if (!this.selectedProduct?.id) {
-      alert('No product selected for deletion.');
-      return;
-    }
-  
-    if (confirm(`Are you sure you want to delete "${this.selectedProduct.name}"?`)) {
-      this.productService.delete(this.selectedProduct.id).subscribe({
-        next: () => {
-          alert('Product deleted!');
-          this.form.reset();
-          
-        },
-        error: (err) => {
-          console.error('Deletion failed:', err);
-          alert('Could not delete product.');
-        }
+    if (this.selectedProduct?.id) {
+      // Update
+      this.productService.update(this.selectedProduct.id, formData).subscribe(() => {
+        alert('Product updated!');
+        this.form.reset();
+      });
+    } else {
+      // Create
+      this.productService.create(formData).subscribe(() => {
+        alert('Product created!');
+        this.form.reset();
       });
     }
   }
-  
+  redirect(){
+    this.router.navigate(['/products'])
+  }
 }

@@ -1,95 +1,92 @@
-<div class="container my-0">
-    <form [formGroup]="form" (ngSubmit)="updateProduct()" class="bg-light p-4 rounded shadow-sm">
-      <h4 class="mb-4">Product</h4>
-  
-      <!--Name-->
-  
-      <div class="mb-3">
-        <label for="name" class="form-label">Name:</label>
+<div class="container my-5">
+  <form [formGroup]="form" class="bbg-white p-5 rounded shadow-sm border">
+    <h3 class="mb-4">Update Product</h3>
+
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label for="name" class="form-label fw-semibold">Name:</label>
         <input
           formControlName="name"
           type="text"
           class="form-control"
           id="name"
+          placeholder="{{selectedProduct.name}}"
         />
       </div>
-  
-      <!--Description-->
-  
-      <div class="mb-3">
-        <label for="description" class="form-label">Product Description:</label>
+    </div>
+
+    <div class="col-md-6">
+      <label for="price" class="form-label fw-semibold">Price:</label>
+      <input
+        formControlName="price"
+        class="form-control"
+        type="number"
+        id="price"
+        placeholder="{{selectedProduct.price}}"
+      />
+    </div>
+
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label for="description" class="form-label fw-semibold"
+          >Product Description:</label
+        >
         <input
           formControlName="description"
           type="text"
           class="form-control"
           id="description"
-          />
+          placeholder="{{selectedProduct.description}}"
+        />
       </div>
-  
+    </div>
+
+    <div class="mb-3 mt-3">
+      @if (selectedProduct.imageUrl){
+        <div class="mt-2">
+      <img
+        [src]="'http://localhost:8080/images/' + selectedProduct.imageUrl"
+        class="img-fluid rounded"
+        style="max-height: 200px"
+        alt="Product Image"
+      />
+        </div>
       
-      <!--Price-->
-  
-      <div class="mb-3 mt-3">
-        <label for="price" class="form-label">Price:</label>
-        <input
-          formControlName="price"
-          class="form-control"
-          type="number"
-          id="price"
-          placeholder="Price in EUR"
-        />
-      </div>
+      }
+      <label for="imageUrl" class="form-label" fw-semibold>Image:</label>
+      <input
+        class="form-control"
+        name="image"
+        type="file"
+        id="imageUrl"
+        placeholder="Upload image"
+        (change)="onFileChange($event)"
+      />
+    </div>
 
-      <!--Image-->
-  
-      <div class="mb-3 mt-3">
-        <label for="imageUrl" class="form-label">Image:</label>
-        <input
-          class="form-control"
-          name="image"
-          type="file"
-          id="imageUrl"
-          placeholder="Upload image"
-          (change)="onFileChange($event)"
-          
-        />
-      </div>
+    <div class="col-md-6">
+      <label for="category" class="form-label fw-semibold">Category:</label>
+      <select formControlName="category" class="form-select" id="category">
+        <option [ngValue]="null" disabled>Select a category</option>
+        @for (category of categories; track category.id){
+        <option [ngValue]="category.id">
+          {{ category.name }}
+        </option>
+        }
+      </select>
+    </div>
+    <div class="mt-4 d-flex gap-3">
+      <app-button
+        label="Update"
+        type="submit"
+        (onClick)="updateProduct()"
+      ></app-button>
 
-
-        <!--Category-->
-  
-    <div class="mb-3">     
-        <label for="category" class="form-label">Category:</label>
-        <select
-        formControlName="category"
-        class="form-select"
-        id="category"
-      >
-          <option [ngValue]="null" disabled>Select a category</option>
-          @for (category of categories; track category.id){ 
-            <option [ngValue]="category.id">
-            {{ category.name }}
-            </option>
-          }
-        
-      </select> 
-    </div>        
-      <div class="mb-3 text-start">
-        <app-button
-          label="Update"
-          type="submit"
-          (onClick)="updateProduct()"
-  
-        ></app-button>        
-
-        <app-button 
-        label="Delete" 
+      <app-button
+        label="Back"
         type="button"
-        (onClick)="deleteProduct()"
-        ></app-button>
-      </div>
-    </form>
-  </div>
-  
-
-  
+        (onClick)="redirect()"
+      ></app-button>
+    </div>
+  </form>
+</div>

@@ -77,3 +77,19 @@ button {
 button:hover {
   background-color: #ee933e;
 }
+.icon-button {
+  background: transparent;
+  border: none;
+  color: #5e3b1c;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.icon-button.edit:hover {
+  color: #007bff;
+}
+
+.icon-button.delete:hover {
+  color: #dc3545;
+}

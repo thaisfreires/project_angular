@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, ImageTextContentComponent, ProductListComponent, RouterLink, ProductCardComponent],
+  imports: [CommonModule, ImageTextContentComponent, RouterLink, ProductCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

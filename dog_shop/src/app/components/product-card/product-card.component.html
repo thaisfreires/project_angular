@@ -6,6 +6,19 @@
       <p>{{ product.description }}</p>
       <strong class="price">EUR {{ product.price }}</strong><br>
       <button [routerLink]="['/product/', product.id]">View Details</button>
+      <div class="product-actions">
+        <button [routerLink]="['/product/update/', product.id]"
+          class="icon-button edit"
+        >
+          <i class="bi bi-pencil"></i>
+        </button>
+    
+        <button
+          class="icon-button delete"
+          (click)="deleteProduct()"
+        >
+          <i class="bi bi-trash"></i>
+        </button>
     </div>
   </div>
 </div>

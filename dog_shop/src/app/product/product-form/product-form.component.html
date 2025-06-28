@@ -1,11 +1,9 @@
 <div class="container my-5">
-  <form [formGroup]="form" (ngSubmit)="saveProduct()" class="bg-white p-5 rounded shadow-sm border">
+  <form [formGroup]="form" class="bg-white p-5 rounded shadow-sm border">
 
-    <!-- Title -->
-    <h3 class="mb-4">Add New Product</h3>
+    <h3 class="mb-4">Register New Product</h3>
 
     <div class="row g-3">
-      <!-- Name -->
       <div class="col-md-6">
         <label for="name" class="form-label fw-semibold">Name</label>
         <input
@@ -13,11 +11,10 @@
           type="text"
           class="form-control"
           id="name"
-          placeholder="e.g., Cozy Dog Bed"
+          placeholder="e.g., Cozy Harness"
         />
       </div>
 
-      <!-- Price -->
       <div class="col-md-6">
         <label for="price" class="form-label fw-semibold">Price</label>
         <input
@@ -29,9 +26,9 @@
         />
       </div>
 
-      <!-- Description -->
-      <div class="col-12">
-        <label for="description" class="form-label fw-semibold">Product Description</label>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="description" class="form-label fw-semibold">Product Description</label>
         <textarea
           formControlName="description"
           class="form-control"
@@ -39,9 +36,9 @@
           rows="2"
           placeholder="Brief description of the product"
         ></textarea>
+        </div>
       </div>
 
-      <!-- Image -->
       <div class="col-md-6">
         <label for="imageUrl" class="form-label fw-semibold">Image</label>
         <input
@@ -53,7 +50,6 @@
         />
       </div>
 
-      <!-- Category -->
       <div class="col-md-6">
         <label for="category" class="form-label fw-semibold">Category</label>
         <select
@@ -69,7 +65,6 @@
       </div>
     </div>
 
-    <!-- Actions -->
     <div class="mt-4 d-flex gap-3">
       <app-button
         label="Save"

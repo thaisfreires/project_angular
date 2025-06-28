@@ -3,7 +3,7 @@ import { ImageTextContentComponent } from '../../components/image-text-content/i
 
 @Component({
   selector: 'app-aboutus',
-  imports: [ImageTextContentComponent],
+  imports: [],
   templateUrl: './aboutus.component.html',
   styleUrl: './aboutus.component.scss'
 })

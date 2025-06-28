@@ -71,7 +71,6 @@ export class ProductFormComponent implements OnInit{
     }
 
     if (this.selectedFile) {
-
       formData.append('image', this.selectedFile.name);
       console.log('image filename sent: ', this.selectedFile.name);
     }
@@ -89,28 +88,6 @@ export class ProductFormComponent implements OnInit{
         this.form.reset();
       });
     }
-  }
-  deleteProduct() {
-    if (confirm('Are you sure you want to delete this product?')) {
-      if (this.selectedProduct && this.selectedProduct.id !== undefined) {
-        this.productService.delete(this.selectedProduct.id).subscribe(() => {
-          alert('Product deleted successfully!');
-          console.log('Deleting product with ID:', this.selectedProduct?.id);
-          this.form.reset();
-        });
-      }
-      else{
-        console.log('deletion failed')
-        console.log('ERROR Deleting product with ID:', this.selectedProduct?.id);
-        
-      }
-      
-    }
-  }
-  selectForEdit(product: Product ) {
-    this.selectedProduct = product;
-    console.log('Product selected for editing: ', this.selectedProduct)
-    
   }
 
   redirect(){

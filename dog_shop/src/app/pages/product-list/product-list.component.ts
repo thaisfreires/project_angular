@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
-import { Product } from '../../product.model';
+import { Component, Input } from '@angular/core';
+import { Category, Product } from '../../product.model';
 import { ProductService } from '../../product.service';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { CommonModule } from '@angular/common';
+import { ButtonComponent } from '../../components/button/button.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
-  imports: [ProductCardComponent, CommonModule],
+  imports: [ProductCardComponent, CommonModule, ButtonComponent, RouterLink],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })
@@ -15,6 +17,9 @@ export class ProductListComponent {
   searchTerm: string = '';
   selectedCategory: string = '';
   filteredProducts: Product[] = [];
+
+  categories: Category[] = [];
+  selectedFile?: File;
 
 
   constructor(private productService: ProductService) {}
@@ -38,4 +43,5 @@ export class ProductListComponent {
       return matchesName && matchesCategory;
     });
   }
+  
 }
