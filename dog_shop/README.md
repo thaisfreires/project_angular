@@ -40,4 +40,4 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 ## Preview
 
-📹 [Ver vídeo demo](https://raw.githubusercontent.com/thaisfreires/project_angular/main/dog_shop/src/assets/preview_dogshop.mp4)
+📹 [View demo video](https://raw.githubusercontent.com/thaisfreires/project_angular/main/dog_shop/src/assets/preview_dogshop.mp4)
