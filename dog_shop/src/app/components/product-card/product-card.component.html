@@ -20,6 +20,12 @@
           <i class="bi bi-trash"></i>
         </button>
     </div>
+    @if (showAlert) {
+      <div class="alert alert-info alert-dismissible fade show mt-3 rounded shadow-sm" role="alert">
+        <strong>Product deleted.</strong><br>
+        <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
+      </div>
+    }
   </div>
 </div>
 

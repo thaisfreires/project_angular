@@ -20,7 +20,7 @@ export class ProductCardComponent {
     if (confirm('Are you sure you want to delete this product?')) {
       if (this.product && this.product.id !== undefined) {
         this.productService.delete(this.product.id).subscribe(() => {
-          alert('Product deleted successfully!');
+          this.showMessage();
           console.log('Deleting product with ID:', this.product?.id);
 
         });
@@ -31,5 +31,12 @@ export class ProductCardComponent {
         
       }
     }
+  }
+  showAlert=false;
+  showMessage(){
+    this.showAlert=true;
+  }
+  closeAlert(){
+    this.showAlert=false;
   }
 }
