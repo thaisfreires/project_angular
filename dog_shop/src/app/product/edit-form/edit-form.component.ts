@@ -81,18 +81,24 @@ export class EditFormComponent {
     if (this.selectedProduct?.id) {
       // Update
       this.productService.update(this.selectedProduct.id, formData).subscribe(() => {
-        alert('Product updated!');
+        this.showMessage();
         this.form.reset();
       });
     } else {
       // Create
       this.productService.create(formData).subscribe(() => {
-        alert('Product created!');
         this.form.reset();
       });
     }
   }
   redirect(){
     this.router.navigate(['/products'])
+  }
+  showAlert=false;
+  showMessage(){
+    this.showAlert=true;
+  }
+  closeAlert(){
+    this.showAlert=false;
   }
 }

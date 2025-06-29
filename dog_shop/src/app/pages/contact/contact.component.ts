@@ -10,6 +10,8 @@ import { ImageTextContentComponent } from '../../components/image-text-content/i
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
+  showAlert=false;
+
   contact: {} = {
     name: '',
     message: '',
@@ -32,6 +34,12 @@ export class ContactComponent {
   });
   resetForm(){
     this.form.reset();
+  }
+  showMetadata(){
+    this.showAlert=true;
+  }
+  closeAlert(){
+    this.showAlert=false;
   }
 }
 

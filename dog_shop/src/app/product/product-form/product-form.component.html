@@ -78,5 +78,11 @@
         (onClick)="redirect()"
       ></app-button>
     </div>
+    @if (showAlert) {
+      <div class="alert alert-info alert-dismissible fade show mt-3 rounded shadow-sm" role="alert">
+        <strong>Product created.</strong><br>
+        <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
+      </div>
+    }
   </form>
 </div>

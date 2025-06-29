@@ -4,7 +4,7 @@
         <img [src]="'http://localhost:8080/images/' + selectedProduct.imageUrl" alt="{{ selectedProduct.name }}"class="main-image">
         <p class="price">Price: {{ selectedProduct.price }} EUR</p>
         <app-button label="Add to Cart" type="button" (onClick)="addToCart()" />
-        <button class="btn btn-secondary mt-2" [routerLink]="['/product-list']">Back</button>
+        <button class="btn btn-secondary mt-2" [routerLink]="['/products']">Back</button>
 
         <div class="review-section">
           <div class="review">

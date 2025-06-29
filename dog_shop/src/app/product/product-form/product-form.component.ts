@@ -78,13 +78,12 @@ export class ProductFormComponent implements OnInit{
     if (this.selectedProduct?.id) {
       // Update
       this.productService.update(this.selectedProduct.id, formData).subscribe(() => {
-        alert('Product updated!');
         this.form.reset();
       });
     } else {
       // Create
       this.productService.create(formData).subscribe(() => {
-        alert('Product created!');
+        this.showMessage()
         this.form.reset();
       });
     }
@@ -92,5 +91,12 @@ export class ProductFormComponent implements OnInit{
 
   redirect(){
     this.router.navigate(['/product-list'])
+  }
+  showAlert=false;
+  showMessage(){
+    this.showAlert=true;
+  }
+  closeAlert(){
+    this.showAlert=false;
   }
 }  

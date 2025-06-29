@@ -59,8 +59,21 @@
         type="reset"
         (onClick)="resetForm()"
       ></app-button>
-      <app-button label="Submit" type="submit"></app-button>
+      <app-button 
+      label="Submit" 
+      type="submit"
+      (onClick)="showMetadata()"
+      ></app-button>
     </div>
+
+    @if (showAlert) {
+      <div class="alert alert-info alert-dismissible fade show mt-3 rounded shadow-sm" role="alert">
+        <strong>Name:</strong> {{ form.value.name }}<br>
+        <strong>Email:</strong> {{ form.value.email }}<br>
+        <strong>Message:</strong> {{ form.value.message }}
+        <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
+      </div>
+    }
   </form>
 </div>
 
